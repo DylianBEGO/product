@@ -2,8 +2,6 @@ package fr.dylian.deal.api;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.dylian.deal.model.Product;
 
 @RestController
-@RequestMapping(value="/products")
+@RequestMapping(value="api/products")
 public interface ProductApi {
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -23,7 +21,7 @@ public interface ProductApi {
 	public Product getProduct(@PathVariable long productId);
 
 	@RequestMapping(method = RequestMethod.POST)
-	public Product createProduct(@Valid @RequestBody Product product) throws Exception;
+	public Product createProduct(@RequestBody Product product) throws Exception;
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/{productId}")
 	public void deleteProduct(@PathVariable long productId);

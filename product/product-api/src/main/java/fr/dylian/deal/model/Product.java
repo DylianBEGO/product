@@ -12,10 +12,8 @@ public class Product {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@NotBlank
 	private String title;
 	private String description;
-	@NotBlank
 	private Double price;
 
 
