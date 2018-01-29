@@ -1,3 +1,11 @@
+# Folder and file hidden
+.*
+
+# Maven files
+mvn*
+log/
+target/
+
 # Compiled class file
 *.class
 
