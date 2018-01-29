@@ -2,6 +2,7 @@ package fr.dylian.deal.service;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,8 +38,11 @@ public class ProductService implements ProductApi {
 	}
 
 	private void validateProduct(Product product) throws Exception {
-		if (product.getPrice() < 0 ) {
-			throw new Exception();
+		if (StringUtils.isEmpty(product.getTitle())) {
+			throw new Exception("Title can not be empty.");
+		}
+		else if (product.getPrice() == null || product.getPrice() < 0 ) {
+			throw new Exception("Price can not be < 0.");
 		}
 	}
 }
